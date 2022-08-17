@@ -73,32 +73,40 @@ function load_countries() {
             data.setFormattedValue(i, 2, `${value} schools`);
         }
 
-        var options = {
-            region: 'world',
-            legend: 'none',
-            colorAxis: {
-                colors: ['#019087', '#008ecc', '#b84099', '#ec2a60', '#f6892c'],
-                values: [0, 1, 2, 3, 4]
-            },
-            backgroundColor: '#f3f5fa',
-        };
-
-        var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
-
-        google.visualization.events.addListener(chart, 'select', function () {
-            var selection = chart.getSelection()[0];
-            if (selection != null && selection.row != null) {
-                var region_id = data.getValue(selection.row, 1);
-                load_country(region_id);
-            }
-        });
-
-        window.addEventListener('resize', function () {
-            chart.draw(data, options);
-        });
-        chart.draw(data, options);
+        var chart_asia = new google.visualization.GeoChart(document.getElementById('geochart-asia'));
+        var chart_eroup = new google.visualization.GeoChart(document.getElementById('geochart-eroup'));
+        var chart_africa = new google.visualization.GeoChart(document.getElementById('geochart-africa'));
+        init_map(chart_asia, get_option('142'));
+        init_map(chart_eroup, get_option('150'));
+        init_map(chart_africa, get_option('002'));
         if ($('#get_map').length > 0) $('#get_map').remove();
     });
+}
+function init_map(chart,options) {
+
+    google.visualization.events.addListener(chart, 'select', function () {
+        var selection = chart.getSelection()[0];
+        if (selection != null && selection.row != null) {
+            var region_id = data.getValue(selection.row, 1);
+            load_country(region_id);
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        chart.draw(data, options);
+    });
+    chart.draw(data, options);
+}
+function get_option(region_id) {
+    return {
+        region: region_id,
+        legend: 'none',
+        colorAxis: {
+            colors: ['#019087', '#008ecc', '#b84099', '#ec2a60', '#f6892c'],
+            values: [0, 1, 2, 3, 4]
+        },
+        backgroundColor: '#f3f5fa',
+    };
 }
 function load_country(region_id) {
     google.charts.load('current', {
@@ -185,7 +193,7 @@ function get_school_location(region_id) {
 }
 function load_school_data(school_id) {
     $.ajax({
-        url: 'https://esmes.ngrok.io/rest/1/projects/ESMES_PROJECT/onlinevalues/.json?value=25;U_Effective;L1&value=25;I_Effective;L1&value=25;PowerActive;L1&value=25;PowerReactivefund;L1&value=25;Powerfactor;L1&value=25;ActiveEnergy;L1&value=26;U_Effective;L1&value=26;I_Effective;L1&value=26;PowerActive;L1&value=26;PowerReactivefund;L1&value=26;Powerfactor;L1&value=26;ActiveEnergy;L1&value=28;U_Effective;L1&value=28;I_Effective;L1&value=28;PowerActive;L1&value=28;PowerReactivefund;L1&value=28;Powerfactor;L1&value=28;ActiveEnergy;L1&value=29;U_Effective;L1&value=29;I_Effective;L1&value=29;PowerActive;L1&value=29;PowerReactivefund;L1&value=29;Powerfactor;L1&value=29;ActiveEnergy;L1&value=30;U_Effective;L1&value=30;I_Effective;L1&value=30;PowerActive;L1&value=30;PowerReactivefund;L1&value=30;Powerfactor;L1&value=30;ActiveEnergy;L1&value=32;U_Effective;L1&value=32;I_Effective;L1&value=32;PowerActive;L1&value=32;PowerReactivefund;L1&value=32;Powerfactor;L1&value=32;ActiveEnergy;L1&value=35;U_Effective;L1&value=35;I_Effective;L1&value=35;PowerActive;L1&value=35;PowerReactivefund;L1&value=35;Powerfactor;L1&value=35;ActiveEnergy;L1&value=36;U_Effective;L1&value=36;I_Effective;L1&value=36;PowerActive;L1&value=36;PowerReactivefund;L1&value=36;Powerfactor;L1&value=36;ActiveEnergy;L1&value=38;U_Effective;L1&value=38;I_Effective;L1&value=38;PowerActive;L1&value=38;PowerReactivefund;L1&value=38;Powerfactor;L1&value=38;ActiveEnergy;L1',
+        url: `https://esmes.ngrok.io/rest/1/projects/ESMES_PROJECT/onlinevalues/.json?value=${school_id};U_Effective;L1&value=${school_id};I_Effective;L1&value=${school_id};PowerActive;L1&value=${school_id};PowerReactivefund;L1&value=${school_id};Powerfactor;L1&value=${school_id};ActiveEnergy;L1`,
         type: 'GET',
         dataType: 'jsonp',
         cors: true,
