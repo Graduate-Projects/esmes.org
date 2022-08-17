@@ -1,0 +1,314 @@
+﻿@page "/"
+@inject IJSRuntime _js
+
+<PageTitle>Home</PageTitle>
+<link href="assets/css/swiper-style.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
+<style>
+    #modal-school-data .card{
+        padding: 0px;
+        margin: 5px;
+    }
+</style>
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients section-bg">
+    <div class="container">
+
+        <div class="row justify-content-around" data-aos="zoom-in">
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/clients/client-1.png" style="max-width: 110%;" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/clients/client-2.png" style="max-width: 105%;" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/clients/client-4.png" style="max-width: 80%;" class="img-fluid" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Cliens Section -->
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+            <div class="col-lg-6">
+                <H1>
+                    Energy Smart Mediterranean Schools Network
+                </H1>
+                <p>
+                    The energy trends in the Mediterranean region are characterized by the growing demand for energy, fossil fuels dependence, high CO2 emissions, etc., with negative consequences on the environment. Buildings are responsible for a significant part of the total energy consumption, causing 36% of CO2 emissions. In this context, increasing the energy performance of the building stock has a key role to play in the transition to a smarter, renewable-intensive and decarbonised energy system and, in the longer term, to a climate-neutral economy. ESMES project will specifically focus on the optimization of energy consumption in public schools through innovative, monitoring-based renewable energy and energy efficiency (REEE) pilot actions. At the same time, the project will improve the capacity of 5 public institutions in order to implement innovative energy rehabilitations.
+                </p>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0  align-content-center" style="text-align: -webkit-center;">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide" style="background-image:url('assets/img/about/about-1.jpg')">
+                            <img src="assets/img/about/about-1.jpg" />
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('assets/img/about/about-2.jpeg')">
+                            <img src="assets/img/about/about-2.jpeg" />
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('assets/img/about/about-3.jpeg')">
+                            <img src="assets/img/about/about-3.jpeg" />
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('assets/img/about/about-4.jpeg')">
+                            <img src="assets/img/about/about-4.jpeg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End About Us Section -->
+<!-- ======= Why Us Section ======= -->
+<section id="beneficiaries" class="why-us section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Beneficiaries</h2>
+        </div>
+        <div class="row map-geochart content">
+            <div id="geochart-colors"></div>
+        </div>
+
+    </div>
+</section>
+<!-- End Why Us Section -->
+<!-- ======= Partners Section ======= -->
+<section id="partners" class="clients">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Partners</h2>
+        </div>
+
+        <div class="row justify-content-around" data-aos="zoom-in">
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-1.png" style="max-width: 90%;" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-6.png" style="max-width: 100%;" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-2.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-3.png" style="max-width: 60%;" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-4.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="assets/img/partners/partner-5.png" style="max-width: 110%;" class="img-fluid" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Cliens Section -->
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Image Gallery</h2>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>Web 3</h4>
+                    <p>Web</p>
+                    <a href="assets/img/portfolio/portfolio-2.jpg" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>App 2</h4>
+                    <p>App</p>
+                    <a href="assets/img/portfolio/portfolio-3.jpg" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>Card 2</h4>
+                    <p>Card</p>
+                    <a href="assets/img/portfolio/portfolio-4.jpg" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>Card 1</h4>
+                    <p>Card</p>
+                    <a href="assets/img/portfolio/portfolio-7.jpg" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>Card 3</h4>
+                    <p>Card</p>
+                    <a href="assets/img/portfolio/portfolio-8.jpg" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
+                <div class="portfolio-info">
+                    <h4>Web 3</h4>
+                    <p>Web</p>
+                    <a href="assets/img/portfolio/portfolio-9.jpg" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-zoom-in"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Portfolio Section -->
+<div id="modal-school-data" class="modal fade modal-xl" aria-hidden="true" aria-labelledby="modal show school data" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">School Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="school-image col-md-4">
+                            <img id="school-img" class="img-fluid rounded-start" alt="school img">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title school-name"></h5>
+                                <p id="school-description" class="card-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-evenly">
+                    <div class="card card-voltage col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/voltage.png" />
+                            <span>Voltage</span>
+                        </div>
+                        <div class="card-body">
+                            (<span id="voltage-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="voltage-unit">V</span>
+                        </div>
+                    </div>
+                    <div class="card card-current col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/current.png" />
+                            <span>
+                                Current
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            (<span id="current-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="current-unit">A</span>
+                        </div>
+                    </div>
+                    <div class="card card-power-factor col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/power-factor.png" />
+                            <span>
+                                Power factor
+                            </span>  
+                        </div>
+                        <div class="card-body">
+                            (<span id="power-factor-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="power-factor-unit"></span>
+                        </div>
+                    </div>
+                    <div class="card card-power-active col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/active-power.png" />
+                            <span>
+                                Active Power
+                            </span>  
+                        </div>
+                        <div class="card-body">
+                            (<span id="power-active-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="power-active-unit">W</span>
+                        </div>
+                    </div>
+                    <div class="card card-power-reactive col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/reactive-power.png" />
+                            <span>
+                                Reactive Power
+                            </span>                            
+                        </div>
+                        <div class="card-body">
+                            (<span id="power-reactive-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="power-reactive-unit">VAR</span>
+                        </div>
+                    </div>
+                    <div class="card card-energy col-sm-12 col-md-3">
+                        <div class="card-header">
+                            <img width="32" height="32" src="assets/img/electrics/energy.png" />
+                            <span>
+                                Energy
+                            </span>
+                            
+                        </div>
+                        <div class="card-body">
+                            (<span id="energy-value"><div class="salign-middle spinner-border spinner-border-sm text-bg-success"> </div></span>)
+                            <span id="energy-unit">WH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+    <!-- Template Main JS File -->
+        var urls = new string[] {
+            "assets/js/map-draw.js",
+            "assets/js/swiper-init.js",
+    };
+        foreach (var url in urls)
+        {
+            await _js.InvokeVoidAsync("loadJs", url);
+        }
+    }
+}

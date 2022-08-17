@@ -1,0 +1,21 @@
+{
+  "name": "esmes.org",
+  "short_name": "esmes",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#03173d",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-512",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon-192",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
