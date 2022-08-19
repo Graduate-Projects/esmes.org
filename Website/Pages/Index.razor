@@ -47,9 +47,9 @@
 
         <div class="row content">
             <div class="col-lg-6">
-                <H1>
+                <h1>
                     Energy Smart Mediterranean Schools Network
-                </H1>
+                </h1>
                 <p>
                     The energy trends in the Mediterranean region are characterized by the growing demand for energy, fossil fuels dependence, high CO2 emissions, etc., with negative consequences on the environment. Buildings are responsible for a significant part of the total energy consumption, causing 36% of CO2 emissions. In this context, increasing the energy performance of the building stock has a key role to play in the transition to a smarter, renewable-intensive and decarbonised energy system and, in the longer term, to a climate-neutral economy. ESMES project will specifically focus on the optimization of energy consumption in public schools through innovative, monitoring-based renewable energy and energy efficiency (REEE) pilot actions. At the same time, the project will improve the capacity of 5 public institutions in order to implement innovative energy rehabilitations.
                 </p>
@@ -82,17 +82,12 @@
 <!-- ======= Why Us Section ======= -->
 <section id="beneficiaries" class="why-us section-bg">
     <div class="container" data-aos="fade-up">
-
         <div class="section-title">
             <h2>Beneficiaries</h2>
         </div>
         <div class="row map-geochart content">
-            <div id="geochart-asia"></div>
-            <div id="geochart-eroup"></div>
-            <div id="geochart-africa"></div>
-            <div id="geochart-country"></div>
+            <div id="geochart-map" style="height:460px;"></div>
         </div>
-
     </div>
 </section>
 <!-- End Why Us Section -->
@@ -305,10 +300,9 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
     <!-- Template Main JS File -->
-        var urls = new string[] {
-            "assets/js/map-draw.js",
-            "assets/js/swiper-init.js",
-    };
+            var urls = new string[] {
+                "assets/js/map-draw.js",
+        };
         foreach (var url in urls)
         {
             await _js.InvokeVoidAsync("loadJs", url);

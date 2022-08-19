@@ -16,12 +16,16 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="jvectormap/jquery-jvectormap-2.0.5.css" rel="stylesheet" />
+    <script src="jvectormap/jquery-jvectormap-2.0.5.min.js"></script>
+    <script src="jvectormap/jquery-jvectormap-world-mill.js"></script>
     <div id="app" style="display:none"></div>
 
     <div id="preloader"></div>
@@ -33,7 +37,9 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-init.js"></script>
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
     <script>
         /**
@@ -46,7 +52,6 @@
                 window.setTimeout(function () {
                     $("#app").show();
                     preloader.remove();
-
                     AOS.init({
                         duration: 1000,
                         easing: "ease-in-out",
@@ -61,12 +66,12 @@
     <script src="site.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
-    
-    <!--<script type="text/javascript">
+
+    <script type="text/javascript">
         caches.delete("blazor-resources-/").then(function (e) {
             console.log("'blazor-resources-/' cache deleted");
         });
-    </script>-->
+    </script>
 </body>
 
 </html>

@@ -54,36 +54,69 @@
         description: 'Mobes High School is an all female school. The school is located 15 km north of Amman, in Ain Albasha, Al-Balqa governorate. Approximately 535 students attend the school.'
     },
 ]
-function load_countries() {
+function load_countries(left, top, mw, mh) {
+
+    document.getElementById('geochart-map').style.top = left + 'px';
+    document.getElementById('geochart-map').style.left = top + 'px'; 
+
     google.charts.load('current', {
         'packages': ['geochart'],
         'mapsApiKey': 'AIzaSyBJfOsYsobb3UOj8UymzMwxzq6daR9X_Dg'
     }).then(function () {
-        var data = google.visualization.arrayToDataTable([
-            ['Country', 'Region', 'value'],
-            ['Jordan', 'JO', get_school_location('JO').getNumberOfRows()],
-            ['Tunisia', 'TN', get_school_location('TN').getNumberOfRows()],
-            ['Lebanon', 'LB', get_school_location('LB').getNumberOfRows()],
-            ['Italy', 'IT', get_school_location('IT').getNumberOfRows()],
-            ['Spain', 'ES', get_school_location('ES').getNumberOfRows()]
-        ]);
-        for (var i = 0; i < data.getNumberOfRows(); i++) {
-            var value = data.getValue(i, 2);
-            data.setValue(i, 2, i);
-            data.setFormattedValue(i, 2, `${value} schools`);
-        }
-
-        var chart_asia = new google.visualization.GeoChart(document.getElementById('geochart-asia'));
-        var chart_eroup = new google.visualization.GeoChart(document.getElementById('geochart-eroup'));
-        var chart_africa = new google.visualization.GeoChart(document.getElementById('geochart-africa'));
-        init_map(chart_asia, get_option('142'));
-        init_map(chart_eroup, get_option('150'));
-        init_map(chart_africa, get_option('002'));
+        //var data = google.visualization.arrayToDataTable([
+        //    ['Country', 'Region', 'value'],
+        //    ['Jordan', 'JO', get_school_location('JO').getNumberOfRows()],
+        //    ['Tunisia', 'TN', get_school_location('TN').getNumberOfRows()],
+        //    ['Lebanon', 'LB', get_school_location('LB').getNumberOfRows()],
+        //    ['Italy', 'IT', get_school_location('IT').getNumberOfRows()],
+        //    ['Spain', 'ES', get_school_location('ES').getNumberOfRows()]
+        //]);
+        //for (var i = 0; i < data.getNumberOfRows(); i++) {
+        //    var value = data.getValue(i, 2);
+        //    data.setValue(i, 2, i);
+        //    data.setFormattedValue(i, 2, `${value} schools`);
+        //}
+        //var chart = new google.visualization.GeoChart(document.getElementById('geochart-map'));
+        //init_map(data, chart, get_option('world', mw, mh));
+        var gdpData = {
+            "JO": 90.63,
+            "TN": 11.58,
+            "LB": 600.97,
+            "IT": 158.97,
+            "ES": 300.97,
+    };
+        //$('#geochart-map').vectorMap({ map: 'world_mill' });
+       
+        $('#geochart-map').vectorMap({
+            map: 'world_mill',
+            backgroundColor: '#f3f5fa',
+            regionStyle: {
+                initial: {
+                    fill: '#e4e4e4',
+                    "fill-opacity": 1,
+                    stroke: 'none',
+                    "stroke-width": 0,
+                    "stroke-opacity": 1
+                }
+            },
+            series: {
+                regions: [{
+                    attribute: 'fill',
+                    //values: gdpData,
+                    //scale: ['#C8EEFF', '#0071A4'],
+                    //normalizeFunction: 'polynomial'
+                    values: { JO: '#019087', ES: '#f6892c', IT: '#ec2a60', TN: '#b84099', LB: '#008ecc' }
+                }]
+            },
+            onRegionTipShow: function (e, el, code) {
+                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+            }
+        });
         if ($('#get_map').length > 0) $('#get_map').remove();
+
     });
 }
-function init_map(chart,options) {
-
+function init_map(data,chart,options) {
     google.visualization.events.addListener(chart, 'select', function () {
         var selection = chart.getSelection()[0];
         if (selection != null && selection.row != null) {
@@ -97,7 +130,7 @@ function init_map(chart,options) {
     });
     chart.draw(data, options);
 }
-function get_option(region_id) {
+function get_option(region_id,mw,mh) {
     return {
         region: region_id,
         legend: 'none',
@@ -106,6 +139,8 @@ function get_option(region_id) {
             values: [0, 1, 2, 3, 4]
         },
         backgroundColor: '#f3f5fa',
+        width: mw,
+        height: mh, 
     };
 }
 function load_country(region_id) {
@@ -243,4 +278,7 @@ function analyisiz_json(school_id, json_result) {
 Number.prototype.round = function (places) {
     return +(Math.round(this + "e+" + places) + "e-" + places);
 }
-load_countries();
+load_countries(400,400,800,800);
+
+
+           
